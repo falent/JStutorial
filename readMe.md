@@ -406,14 +406,106 @@ for (value of myArray ) {
 
 ```
 
+for objects
+
+```js
+const users = [{name: 'tom', surname: 'moni'}, {name: 'Tommy', surname: 'Moni2'}];
+
+for (let user in users) {
+  console.log(keyr.name);
+}
+```
+
+
+
 ### for each
+
+accepts a callback function. Calls the function once per element in the array.
 
 ```javascript
 const myArray = ['ala', 'ma', 'kota'];
-myArray.forEach((value, i) => {
+myArray.forEach((value, index) => {
     console.log('Value: '+value);
-    console.log('Index'+i);
+    console.log('Index'+index);
 })
+
+```
+
+for objects
+
+```js
+const users = [{name: 'tom', surname: 'moni'}, {name: 'Tommy', surname: 'Moni2'}];
+
+users.forEach( function (user) {
+ console.log(user.name);   
+}
+)
+```
+
+### Map
+
+creates a new array with the results of calling a callback on every element in the array
+
+```javascript
+const myArray = ['ala', 'ma', 'kota'];
+const myArrayUpper = myArray.map( (t) =>
+                    return t.toUpperCase();
+)
+myArrayUpper.toString()
+// ALA
+// MA
+// KOTA
+const numbers = [1, 2, 7];
+
+const buildObjectNumbersDetails = numbers.map( num => {
+    return {
+        value: num,
+        isOdd: num %2 ==! 0
+    }
+}
+)
+
+```
+
+### Array.find
+
+```javascript
+let names = {
+    "Krajewski", "Dirk", "Dr Resing", "Prof Matloka", "Dr Szyszka"
+}
+
+names.find (name => {
+	return name.includes('Dr')    
+}
+)
+// it returns true when it ocurres first value of Dr
+
+
+
+```
+
+### Array.filter
+
+```javascript
+let names = {
+    "Krajewski", "Dirk", "Dr Resing", "Prof Matloka", "Dr Szyszka"
+}
+
+const shortNamesLength = names.filter(name => {
+	name.length<5;    
+}
+)
+// it returns only Dirk
+
+const middleNamesLength = names.filter(name => {
+	name.length<5 && name.length>9;    
+}
+)
+
+const allScientists = names.filter(name => {
+	name.includes('Dr');    
+}
+)
 
 ```
 
