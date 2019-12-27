@@ -164,16 +164,77 @@ console.log(title);
 // "myTitle"
 const [,second] = myJson.genreIds;
 console.log(second);
-// 33
+const [first, ,...others] = myJson.genreIds;
+console.log(others);
+// 3,32,44
+```
+
+### Destructing nested object
+
+```javascript
+const myJson =  { [
+  id: 1,
+  title: "myTitle",
+  published: 1999
+  genreIds: [9,33,3,32,44],
+  id: 2,
+  title: "myTitle2",
+  published: 1992
+  genreIds: [9,33,3,32,44],                            
+};
+
+const {, {title}} = myJson;
+console.log(title);
+// "myTitle2"
 ```
 
 ### 
 
+### Default parameters
 
+```javascript
+function divide(a, b = 1) {
+    return a/b;
+}
+```
 
+### Spread
 
+```javascript
+function sum(x, y, z) {
+  return x + y + z;
+}
 
+const numbers = [1, 2, 3];
 
+console.log(sum(...numbers));
+//6
+```
+
+### REST
+
+it is 3 dots. It collects all arguments into an array
+
+```javascript
+function sum(...myArguments) {
+  return myArguments.reduce((total, curVal) => {
+      return total+curVal;
+  });
+}
+
+sum(1,2,3)
+//6
+
+function getArtistDetails(firstName, lastName, ...albums) {
+	console.log(firstName);
+ 	console.log(lastName);
+    console.log(albums);
+}
+getArtistDetails("Wiejski", "Wacek", "Szalala Szalala", "Orka Orka", "i takie tam inne przeboje")
+//6
+```
+
+### 
 
 ### Anonymous function
 
@@ -227,9 +288,57 @@ or
 person['firstName']
 ```
 
+### Objects shortened 
 
+You can see an object as a such block of values
 
+```javascript
+const person = {
+  firstName: 'Tomasz',
+  lastName: 'Krajewski',
+  greet () {
+    console.log('Hello '+this.firstName + ' ' + this.lastName);
+  },
+};
+
+person.greet();
+
+console.log(person.firstName);
+console.log(person['firstName']);
+
+```
+
+remember you can get your object value in the two ways:
+
+```javascript
+person.firstName
+```
+
+or
+
+```javascript
 person['firstName']
+```
+
+### Keyword this 
+
+You can see an object as a such block of values
+
+```javascript
+const person = {
+  firstName: 'Tomasz',
+  lastName: 'Krajewski',
+  greet () {
+    console.log('Hello '+this.firstName + ' ' + this.lastName);
+  },
+};
+
+person.greet();
+
+console.log(person.firstName);
+console.log(person['firstName']);
+
+```
 
 
 
