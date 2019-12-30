@@ -322,25 +322,86 @@ person['firstName']
 
 ### Keyword this 
 
-You can see an object as a such block of values
+If we log word 
+
+```
+this
+```
+
+ in a function we will see the global variable "window". At least in a browser
 
 ```javascript
-const person = {
-  firstName: 'Tomasz',
-  lastName: 'Krajewski',
-  greet () {
-    console.log('Hello '+this.firstName + ' ' + this.lastName);
+const hi = () => {
+    console.log(this);
+}
+```
+
+in node is something else.
+
+#### this in the object
+
+ value this in object is that object
+
+```javascript
+const book = {
+    title: "The little Prince",
+    "id": 2212,
+    fullDetails(){
+        console.log(this);
+    }
+}
+```
+
+#### this in arrow function
+
+Remember arrow function doesn't get special "this"
+
+```javascript
+const show = {
+  count: [1, 2, 3, 4],
+  last: 3,
+  countBack(last) {
+    if (this.last >= 0) {
+      return this.count[last];
+    } else return 'I finished';
+  },
+  start() {
+    setInterval( () => {
+      console.log(this.countBack(this.last));
+      this.last = this.last-1;
+    }, 1000
+    );
   },
 };
 
-person.greet();
-
-console.log(person.firstName);
-console.log(person['firstName']);
-
+show.start();
 ```
 
+compare to:
 
+```javascript
+const show = {
+  count: [1, 2, 3, 4],
+  last: 3,
+  countBack(last) {
+    if (this.last >= 0) {
+      return this.count[last];
+    } else return 'I finished';
+  },
+  start() {
+    setInterval(function() {
+      console.log(this.countBack(this.last));
+      this.last = this.last - 1;
+    }
+    ,
+    1000);
+  },
+};
+
+show.start();
+```
+
+You will get...
 
 ### Node api
 
