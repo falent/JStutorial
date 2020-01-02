@@ -403,6 +403,207 @@ show.start();
 
 You will get...
 
+```javascript
+console.log(this.countBack(this.last));
+                       ^
+
+TypeError: this.countBack is not a function
+```
+
+Ergo? **Arrow function refers always to the object!!** and regular function to the window object
+
+
+
+
+
+### Interesting examples in JS
+
+How to execute ?
+`a(2)(3) `
+
+```JavaScript
+function a(x){
+    console.log(x);
+    return function(y){
+        console.log(x+y);
+    }
+}
+```
+
+`b(2).run `
+
+```JavaScript
+function b(x){
+    console.log(x);
+    return {run: 'Hallloooo'}
+}
+```
+
+
+
+## Fronted
+
+examples from tutorial: https://www.khanacademy.org/computing/computer-programming/html-css-js
+
+DOM (Document Object Model)  is a javascript representation of a webpage (or bunch of objects that you can interact via JS) xx
+
+to manipulating DOM we are using object 
+
+```
+document
+```
+
+try:
+
+```JS
+console.dir(document)
+```
+
+what do you see?
+
+findElementById  (ONLY ONE! if it is more you will get the first one)
+
+```JS
+var headingEl = document.getElementById("id-name");
+console.dir(headingEl) // shows you all elements in that object
+headingEl.innerHTML = "<strong>All about cats</strong>";
+headingEl.innterText = "All about cats";
+```
+
+findElementsByTagName
+
+```JS
+var nameEls = document.getElementsByTagName("span");
+console.log(nameEls[0]);
+
+```
+
+findElementsByClassName
+
+```JS
+var nameEls = document.getElementsByClassName("animal");
+console.log(nameEls[0]);
+```
+
+document.querySelector("#cssSelector")
+
+document.querySelectorAll(cssSelector)
+
+```JS
+var range = document.querySelector('input[type="range"]');
+range.getAttribute('max');
+range.setAttribute('min', 900);
+```
+
+### getting all "relates"
+
+```JS
+ul.children // gets all elements 
+ul.parent // gets element above
+elementName.nextElementSibling //gets next element
+elementName.previousElementSibling //gets previous element
+```
+
+### getting computed style (from css sheet)
+
+```JS
+var el = document.querySelector('li');
+var style = getComputedStyle(el);
+```
+
+
+
+### Changing attributes
+
+```JS
+var imageEls = document.getElementsByTagName("img");
+	for (var i = 0; i < imageEls.length; i++) {
+        imageEls[i].src ="https://www.url.org/animals/cat.png";
+        }
+```
+
+### Adding an event listener
+
+```JS
+<button id="clicker">Boring button</button>
+<script>
+var clickerButton = document.getElementById("clicker");
+var onButtonClick = function() {
+        clickerButton.textContent = "Oh wow, you clicked me!";
+};
+clickerButton.addEventListener("click", onButtonClick);
+<script>
+```
+
+### How to manipulate css with JS
+
+```JS
+const myImage = document.createElement('img');
+myImage.src = "https://i7.pngguru.com/preview/419/83/722/computer-programming-programming-language-programmer-logo-introduction-thumbnail.jpg"
+myImage.style.width = '50px';
+myImage.style.transition = 'all 2s';
+
+setInterval( () => {
+    const x = Math.floor(document.body.clientWidth *Math.random())
+    const y = Math.floor(document.body.clientHeight *Math.random())
+    myImage.style.transform = 'translate('+x+'px, '+y+'px)';
+}, 1000
+
+ )
+
+document.body.append(myImage);
+
+```
+
+### Using the event properties
+
+```JS
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Using the event properties</title>
+        <style>
+        .beard {
+              	background: black;
+         		width: 5px;
+         		height: 5px;
+         		position: absolute;
+         		border-radius: 2px;
+         		top: 80px;
+         		left: 15px;
+         	}
+        </style>
+    </head>
+    <body>
+    
+    <img id="face" src="https://www.kasandbox.org/programming-images/creatures/Winston.png">
+    <div id="message"></div>
+    
+    <script>
+    // 1. Find and store the element we want to listen to events on.
+    var face = document.getElementById("face");
+    // 2. Define the function that will respond to the event.
+    var onMouseMove = function(event) {
+        console.log(e);
+        document.getElementById("message").textContent += "mooove ";         var beard = document.createElement("div");
+        beard.className = "beard";
+        document.body.appendChild(beard);
+        beard.style.top = event.clientY + "px";
+        beard.style.left = event.clientX + "px";
+        
+    };
+    // 3. Add the event listener for the element and function
+    face.addEventListener("mousemove", onMouseMove);
+    </script>
+    </body>
+</html>
+```
+
+### 
+
+
+
 ### Node api
 
 https://nodejs.org/api/index.html
