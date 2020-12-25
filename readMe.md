@@ -5,7 +5,7 @@
 ### JavaScript Variables
 
 ```javascript
-const name = "Ali";
+const name = "Alid";
 let money;
 money = 2000.50;
 ```
