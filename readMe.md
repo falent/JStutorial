@@ -1,6 +1,20 @@
 # A Short JS and Node.js tutorial
 
+### Semicolon
 
+js adds semicolon by itself (except it occurs fe mathematical operator)
+
+```javascript
+function test(){
+    return 
+    {
+     a:5   
+    }
+}
+console.log(test()) //undefined. Why?
+```
+
+### Variable 
 
 ### JavaScript Variables
 
@@ -16,7 +30,7 @@ money = 2000.50;
 const myVar = 'global'; // Declare a global variable
 function checkscope( ) {
   const myVar = 'local'; // Declare a local variable
-  console.log(myVar);
+  console.log(myVar); //local
 }
 ```
 
@@ -200,7 +214,18 @@ function divide(a, b = 1) {
 
 ### Spread
 
+it is one of the best way to create new arrays assignment! example 1.1
+
 ```javascript
+//example 1.1
+let arr1 = [1,2,3,4,5]
+let arr2 = [...arr1,6,7]
+console.log(arr2); //[1,2,3,4,5,6,7]
+
+let arr3 = [1,22,113,34,5]
+console.log(Math.max(...arr3)) //113
+console.log(Math.max(arr3)) //NaN
+
 function sum(x, y, z) {
   return x + y + z;
 }
@@ -213,7 +238,7 @@ console.log(sum(...numbers));
 
 ### REST
 
-it is 3 dots. It collects all arguments into an array
+it is 3 dots. It collects all arguments into an array. The rest operator is part of ES6. So whenever you use (...) with function to deal with any number of parameters, then you call it Rest operator i.e. for the rest parameters. We cannot have rest parameter in the beginning of parameter list, when there is at least 2 parameters!!
 
 ```javascript
 function sum(...myArguments) {
@@ -234,7 +259,7 @@ getArtistDetails("Wiejski", "Wacek", "Szalala Szalala", "Orka Orka", "i takie ta
 //6
 ```
 
-### 
+
 
 ### Anonymous function
 
@@ -909,7 +934,39 @@ for (let value in user ) {
 
 
 
+### Undefined
+
+is a primitive type in JS. It means value is undefined!!
+
+```javascript
+let x;
+console.log(x) //undefined
+console.log(type of x) //undefined
+let z = undefined;
+console.log(z);
+```
+
+### Null
+
+null is exactly the same as other programming languages
+
+null means nothing
+
+When we have a variable or object which we want to make empty then we assign "null" to variable
+
+```javascript
+let x=null;
+let y;
+console.log(x) //null
+console.log(x==y) //true because null and undefined represents nothing
+console.log(x===y) //false because they contains different type
+```
+
+
+
 ### Primitives
+
+string, number, boolean, null, undefined, symbol
 
 string, number, boolean, null, undefined, symbol
 
