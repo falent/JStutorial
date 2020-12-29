@@ -259,7 +259,24 @@ getArtistDetails("Wiejski", "Wacek", "Szalala Szalala", "Orka Orka", "i takie ta
 //6
 ```
 
+### NaN
+NaN is a global property representing "Not-A-Number". You normally get this error when
+there is a non numeric value or operation performed.
 
+it is 3 dots. It collects all arguments into an array. The rest operator is part of ES6. So whenever you use (...) with function to deal with any number of parameters, then you call it Rest operator i.e. for the rest parameters. We cannot have rest parameter in the beginning of parameter list, when there is at least 2 parameters!!
+
+```javascript
+let x = "Monia"
+let y = 3;
+console.log(x*y)
+
+if(!isNaN(x*y)) {
+	console.log('Is valid')
+}
+
+isNaN==isNaN //each non a value is unique!
+
+```
 
 ### Anonymous function
 
